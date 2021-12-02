@@ -1,0 +1,60 @@
+[tool.poetry]
+name = "backend"
+version = "0.1.0"
+description = ""
+authors = ["graystum <graystum.dev@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Flask = "^2.0.2"
+bcrypt = "^3.2.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = {version = "^21.11b1", allow-prereleases = true}
+isort = "^5.10.1"
+mypy = "^0.910"
+djhtml = "^1.4.10"
+flake8 = "^4.0.1"
+flake8-print = "^4.0.0"
+pep8-naming = "^0.12.1"
+vulture = "^2.3"
+bandit = "^1.7.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+target-version = ["py39"]
+
+[tool.isort]
+combine_as_imports = true
+force_grid_wrap = 0
+include_trailing_comma = true
+known_first_party = "backend"
+line_length = 100
+multi_line_output = 3
+no_lines_before = "LOCALFOLDER"
+order_by_type = false
+known_third_party = ""
+
+[tool.mypy]
+allow_redefinition = true
+disallow_untyped_defs = true
+warn_unused_ignores = true
+
+[tool.vulture]
+min_confidence = 100
+
+[tool.pytest.ini_options]
+addopts = "--showlocals"
+
+[tool.poetry.scripts]
+format = "scripts:format"
+reformat = "scripts:reformat"
+lint = "scripts:lint"
+hello = "scripts:hello"
+test = "scripts:test"
+start = "scripts:start"
